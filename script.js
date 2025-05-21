@@ -1,93 +1,97 @@
- // Create flying meme coins
-        function createFlyingCoins() {
-            const coinImages = [
-                '🪙', '💰', '💎', '👑', '🚀', '💸', '🤑', '💲'
-            ];
-            
-            for (let i = 0; i < 8; i++) {
-                setTimeout(() => {
-                    const coin = document.createElement('div');
-                    coin.className = 'meme-coin';
-                    coin.textContent = coinImages[Math.floor(Math.random() * coinImages.length)];
-                    coin.style.left = `${Math.random() * 100}px`;
-                    coin.style.top = `${Math.random() * 100}px`;
-                    coin.style.animationDelay = `${Math.random() * 5}s`;
-                    coin.style.fontSize = `${Math.random() * 30 + 20}px`;
-                    document.body.appendChild(coin);
-                    
-                    // Remove coin after animation completes
-                    setTimeout(() => {
-                        coin.remove();
-                    }, 15000);
-                }, i * 2000);
-            }
+ // Copy to Clipboard Function
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const notification = document.getElementById('notification');
+        notification.classList.add('show');
+        setTimeout(() => {
+          notification.classList.remove('show');
+        }, 2000);
+      });
+    }
+
+    // Particle Background
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particlesArray = [];
+    const numberOfParticles = 100;
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 5 + 1;
+        this.speedX = Math.random() * 3 - 1.5;
+        this.speedY = Math.random() * 3 - 1.5;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.size > 0.2) this.size -= 0.1;
+
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+
+      draw() {
+        ctx.fillStyle = 'rgba(30, 144, 255, 0.5)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particlesArray = [];
+      for (let i = 0; i < numberOfParticles; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
+        if (particlesArray[i].size <= 0.2) {
+          particlesArray.splice(i, 1);
+          particlesArray.push(new Particle());
+          i--;
         }
-        
-        // Create confetti effect
-        function createConfetti() {
-            const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
-            
-            for (let i = 0; i < 100; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    confetti.style.left = `${Math.random() * 100}vw`;
-                    confetti.style.width = `${Math.random() * 10 + 5}px`;
-                    confetti.style.height = `${Math.random() * 10 + 5}px`;
-                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
-                    document.body.appendChild(confetti);
-                    
-                    // Remove confetti after animation completes
-                    setTimeout(() => {
-                        confetti.remove();
-                    }, 3000);
-                }, i * 30);
-            }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initParticles();
+    });
+
+    initParticles();
+    animateParticles();
+
+    // Countdown Timer
+    function startCountdown(elementId, duration) {
+      const countdownElement = document.getElementById(elementId);
+      let time = duration;
+
+      setInterval(() => {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        countdownElement.textContent = `Next Reward: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        time--;
+        if (time < 0) {
+          time = duration;
         }
-        
-        // Copy contract address
-        function copyContract() {
-            const contractAddress = document.getElementById('contractAddress');
-            const notification = document.getElementById('notification');
-            
-            navigator.clipboard.writeText(contractAddress.textContent).then(() => {
-                notification.classList.add('show');
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 2000);
-            });
-        }
-        
-        // Simulate price updates (in a real app, you'd fetch this from an API)
-        function updatePrice() {
-            const price = document.getElementById('price');
-            const marketcap = document.getElementById('marketcap');
-            const volume = document.getElementById('volume');
-            const holders = document.getElementById('holders');
-            
-            // Generate random but increasing values
-            const currentPrice = parseFloat(price.textContent.replace('$', '')) || 0.0001;
-            const newPrice = currentPrice + (Math.random() * 0.0001 - 0.00005);
-            price.textContent = '$' + newPrice.toFixed(4);
-            
-            marketcap.textContent = '$' + Math.floor(newPrice * 1000000000).toLocaleString();
-            volume.textContent = '$' + Math.floor(Math.random() * 100000 + 50000).toLocaleString();
-            holders.textContent = Math.floor(Math.random() * 1000 + 500);
-            
-            setTimeout(updatePrice, 3000);
-        }
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            createFlyingCoins();
-            setInterval(createFlyingCoins, 15000);
-            
-            // Create confetti when buttons are clicked
-            document.querySelectorAll('.cta-button').forEach(button => {
-                button.addEventListener('click', createConfetti);
-            });
-            
-            // Start price updates
-            updatePrice();
-        });
+      }, 1000);
+    }
+
+    // Initialize countdown timers for each card
+    for (let i = 1; i <= 10; i++) {
+      startCountdown(`countdown-${i}`, 900); // 15 minutes = 900 seconds
+    }
