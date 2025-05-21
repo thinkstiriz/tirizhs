@@ -1,280 +1,418 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rocky Art Reward [RARE]</title>
-    <link rel="icon" type="image/x-icon" href="rocky_logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>50USD | USDC Rewards Every 15 Minutes</title>
+  <link rel="shortcut icon" href="#" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Oxanium:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-    <div class="crt-effect"></div>
-    
-    <div class="hero">
-        <video autoplay muted loop class="hero-video">
-            <source src="background.mp4" type="video/mp4">
-            <img src="background.mp4" alt="Rocky Art Background" style="width: 100%; height: 100%; object-fit: cover;">
-        </video>
-        <div class="hero-overlay"></div>
-        
-        <div class="floating-image" style="top: 10%; left: 5%; background-image: url('https://cdn-icons-png.flaticon.com/512/3043/3043067.png');"></div>
-        <div class="floating-image" style="top: 80%; left: 10%; animation-delay: 1s; background-image: url('https://cdn-icons-png.flaticon.com/512/477/477406.png');"></div>
-        <div class="floating-image" style="top: 30%; left: 85%; animation-delay: 2s; background-image: url('https://cdn-icons-png.flaticon.com/512/3097/3097008.png');"></div>
-        <div class="floating-image" style="top: 70%; left: 80%; animation-delay: 3s; background-image: url('https://cdn-icons-png.flaticon.com/512/2906/2906274.png');"></div>
-        <div class="spinning-coin" style="top: 20%; left: 20%;"></div>
-        <div class="spinning-coin" style="top: 60%; left: 70%; animation-delay: 0.5s;"></div>
-        
-        <div class="meme-text" style="top: 15%; right: 10%;">WAGMI!</div>
-        <div class="meme-text" style="bottom: 20%; left: 10%; animation-delay: 1s;">TO THE MOON!</div>
-        
-        <div class="hero-content">
-            <h1 class="title">ROCKY ART REWARD</h1>
-            <p class="subtitle">When <span class="highlight">stoned</span> artists meet <span class="highlight">stoned</span> degens 🚀</p>
-            <div>
-                <a href="https://pump.fun/5uiEw5iaZaW7hz7H9fSCWii2vZrDWBhHv371t6yXKSDR" class="cta-button">BUY $RARE NOW</a>
-                <a href="#nfts" class="cta-button">SEE THE ROCKS</a>
-            </div>
-        </div>
+  <canvas id="particle-canvas"></canvas>
+
+  <div id="notification" class="notification">
+    <i class="fas fa-check-circle"></i> Contract address copied!
+  </div>
+
+  <div class="title-container">
+    <div class="logo">50USD</div>
+  </div>
+
+  <div class="main-image-container">
+    <img src="https://via.placeholder.com/800" alt="50USD Token" class="main-image">
+  </div>
+
+  <div class="special-image-container">
+    <img src="https://via.placeholder.com/600x200" alt="Special 50USD Token" class="special-image">
+  </div>
+  <div class="special-ca">
+    <p class="contract-address" onclick="copyToClipboard('0x9999999999abcdef1234567890abcdef12345678')">CA: 0x9999999999abcdef1234567890abcdef12345678</p>
+  </div>
+
+  <div class="investment-grid">
+    <!-- Card 1 -->
+    <div class="investment-card">
+      <div class="countdown" id="countdown-1">Next Reward: 15:00</div>
+      <div class="card-header">
+        <img src="https://cryptologos.cc/logos/pepe-pepe-logo.png" alt="Pepe Logo">
+        <span class="stats">5 - 2 - 1%</span>
+      </div>
+      <h3 class="card-title">Pepe50USD</h3>
+      <div class="insurance">$500 Insurance</div>
+      <div class="card-info">
+        <p>Our Investment: $501</p>
+        <p>Min Spend: $15</p>
+        <p>Min Withdraw: $0.1 for ePayCore, $10 for Bitcoin, $3 for others</p>
+        <p>Referral: 3 Levels: 5% - 2% - 1%</p>
+        <p>Status: Paying</p>
+        <p>Online: 2025-05-19 (1 D)</p>
+        <p>Monitored: 1 Days</p>
+        <p>Last Paid: 12 hours ago</p>
+        <p class="contract-address" onclick="copyToClipboard('0x1234567890abcdef1234567890abcdef12345678')">CA: 0x1234567890abcdef1234567890abcdef12345678</p>
+      </div>
+      <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="icon-row">
+        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+        <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png" alt="USDC">
+        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT">
+        <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png" alt="BNB">
+      </div>
     </div>
-    
-    <div class="section">
-        <h2 class="section-title">WHY BUY $RARE?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/3132/3132693.png');"></div>
-                <h3 class="feature-title">Passive SOL Rewards</h3>
-                <p>5% of every trade gets redistributed to holders as SOL. Just hold and watch your bag grow!</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2583/2583344.png');"></div>
-                <h3 class="feature-title">Guinness Record</h3>
-                <p>We're painting 1000 rocks to set a world record. Your NFT will be part of history!</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/3023/3023794.png');"></div>
-                <h3 class="feature-title">Exclusive Airdrops</h3>
-                <p>Hold 5M tokens to get rare NFT airdrops of our best painted stones!</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/4392/4392452.png');"></div>
-                <h3 class="feature-title">Meme Potential</h3>
-                <p>We're not just another meme coin - we're literally about painted ROCKS. Bullish!</p>
-            </div>
-        </div>
+
+    <!-- Card 2 -->
+    <div class="investment-card">
+      <div class="countdown" id="countdown-2">Next Reward: 15:00</div>
+      <div class="card-header">
+        <img src="https://cryptologos.cc/logos/dogecoin-doge-logo.png" alt="Doge Logo">
+        <span class="stats">4 - 1 - 0.5%</span>
+      </div>
+      <h3 class="card-title">fart50USD</h3>
+      <div class="insurance">$400 Insurance</div>
+      <div class="card-info">
+        <p>Our Investment: $400</p>
+        <p>Min Spend: $20</p>
+        <p>Min Withdraw: $0.2 for ePayCore, $8 for Bitcoin, $2 for others</p>
+        <p>Referral: 3 Levels: 4% - 1% - 0.5%</p>
+        <p>Status: Paying</p>
+        <p>Online: 2025-05-18 (2 D)</p>
+        <p>Monitored: 2 Days</p>
+        <p>Last Paid: 10 hours ago</p>
+        <p class="contract-address" onclick="copyToClipboard('0xabcdef1234567890abcdef1234567890abcdef12')">CA: 0xabcdef1234567890abcdef1234567890abcdef12</p>
+      </div>
+      <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="icon-row">
+        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+        <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png" alt="USDC">
+        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT">
+        <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png" alt="BNB">
+      </div>
     </div>
-    
-    <div class="section" id="nfts">
-        <h2 class="section-title">THE ROCKS</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; font-size: 1.2rem;">
-            Each of these beautiful hand-painted stones will become a 1/1 NFT for our holders. 
-            <br>Which one will you get? 👀
-        </p>
-        
-        <div class="nft-gallery">
-            <div class="nft-card">
-                <div class="glitch-img">
-                    <img src="rock1.png" class="nft-image">
-                </div>
-                <div class="nft-info">
-                    <h3 class="nft-name">Degen Rock #001</h3>
-                    <p>"To the moon" edition</p>
-                </div>
-            </div>
-            <div class="nft-card">
-                <div class="glitch-img">
-                    <img src="rock2.png" class="nft-image">
-                </div>
-                <div class="nft-info">
-                    <h3 class="nft-name">WAGMI Rock #042</h3>
-                    <p>Diamond hands special</p>
-                </div>
-            </div>
-            <div class="nft-card">
-                <div class="glitch-img">
-                    <img src="rock3.png" class="nft-image">
-                </div>
-                <div class="nft-info">
-                    <h3 class="nft-name">GM Rock #017</h3>
-                    <p>Good morning sunshine</p>
-                </div>
-            </div>
-            <div class="nft-card">
-                <div class="glitch-img">
-                    <img src="rock4.png" class="nft-image">
-                </div>
-                <div class="nft-info">
-                    <h3 class="nft-name">NGMI Rock #005</h3>
-                    <p>For paper hands</p>
-                </div>
-            </div>
-        </div>
+
+    <!-- Card 3 -->
+    <div class="investment-card">
+      <div class="countdown" id="countdown-3">Next Reward: 15:00</div>
+      <div class="card-header">
+        <img src="https://cryptologos.cc/logos/maga-maga-coin-logo.png" alt="Trump Logo">
+        <span class="stats">6 - 3 - 1%</span>
+      </div>
+      <h3 class="card-title">Trump50USD</h3>
+      <div class="insurance">$600 Insurance</div>
+      <div class="card-info">
+        <p>Our Investment: $600</p>
+        <p>Min Spend: $10</p>
+        <p>Min Withdraw: $0.1 for ePayCore, $12 for Bitcoin, $4 for others</p>
+        <p>Referral: 3 Levels: 6% - 3% - 1%</p>
+        <p>Status: Paying</p>
+        <p>Online: 2025-05-17 (3 D)</p>
+        <p>Monitored: 3 Days</p>
+        <p>Last Paid: 8 hours ago</p>
+        <p class="contract-address" onclick="copyToClipboard('0x7890abcdef1234567890abcdef1234067890abcd')">CA: 0x7890abcdef1234567890abcdef1234067890abcd</p>
+      </div>
+      <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="icon-row">
+        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+        <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png" alt="USDC">
+        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT">
+        <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png" alt="BNB">
+      </div>
     </div>
-    
-    <div class="section tokenomics">
-        <h2 class="section-title">TOKENOMICS</h2>
-        
-        <div class="chart-container">
-            <h3 style="text-align: center; color: var(--primary); margin-bottom: 30px;">Total Supply: 1,000,000,000 $RARE</h3>
-            <div style="display: flex; justify-content: center; margin-bottom: 40px;">
-                <div style="width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(
-                    var(--primary) 0% 50%,
-                    var(--secondary) 50% 80%,
-                    var(--accent) 80% 95%,
-                    var(--neon2) 95% 100%
-                ); box-shadow: 0 0 20px var(--neon);"></div>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
-                <div style="background: rgba(0,0,0,0.7); padding: 15px; border-radius: 10px; border: 2px solid var(--primary);">
-                    <h4 style="color: var(--primary); margin: 0 0 10px 0;">50% Liquidity</h4>
-                    <p style="margin: 0;">Locked for 6 months</p>
-                </div>
-                <div style="background: rgba(0,0,0,0.7); padding: 15px; border-radius: 10px; border: 2px solid var(--secondary);">
-                    <h4 style="color: var(--secondary); margin: 0 0 10px 0;">30% Marketing</h4>
-                    <p style="margin: 0;">CEX listings, influencers</p>
-                </div>
-                <div style="background: rgba(0,0,0,0.7); padding: 15px; border-radius: 10px; border: 2px solid var(--accent);">
-                    <h4 style="color: var(--accent); margin: 0 0 10px 0;">15% Rewards</h4>
-                    <p style="margin: 0;">SOL rewards for holders</p>
-                </div>
-                <div style="background: rgba(0,0,0,0.7); padding: 15px; border-radius: 10px; border: 2px solid var(--neon2);">
-                    <h4 style="color: var(--neon2); margin: 0 0 10px 0;">5% Team</h4>
-                    <p style="margin: 0;">Locked for 3 months</p>
-                </div>
-            </div>
-            
-            <div style="margin-top: 40px; background: rgba(0,0,0,0.7); padding: 20px; border-radius: 15px; border: 3px solid var(--neon);">
-                <h3 style="color: var(--accent); text-align: center; margin-bottom: 15px;">Tax Structure</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div>
-                        <h4 style="color: var(--primary); margin: 5px 0;">Buy Tax: 5%</h4>
-                        <ul style="margin: 5px 0; padding-left: 20px;">
-                            <li>3% SOL Rewards</li>
-                            <li>1% Marketing</li>
-                            <li>1% Liquidity</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 style="color: var(--secondary); margin: 5px 0;">Sell Tax: 10%</h4>
-                        <ul style="margin: 5px 0; padding-left: 20px;">
-                            <li>5% SOL Rewards</li>
-                            <li>3% Marketing</li>
-                            <li>2% Liquidity</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    <!-- Card 4 -->
+    <div class="investment-card">
+      <div class="countdown" id="countdown-4">Next Reward: 15:00</div>
+      <div class="card-header">
+        <img src="https://cryptologos.cc/logos/tron-trx-logo.png" alt="Tit Logo">
+        <span class="stats">5 - 2 - 0.5%</span>
+      </div>
+      <h3 class="card-title">Tit50USD</h3>
+      <div class="insurance">$450 Insurance</div>
+      <div class="card-info">
+        <p>Our Investment: $450</p>
+        <p>Min Spend: $25</p>
+        <p>Min Withdraw: $0.3 for ePayCore, $15 for Bitcoin, $5 for others</p>
+        <p>Referral: 3 Levels: 5% - 2% - 0.5%</p>
+        <p>Status: Paying</p>
+        <p>Online: 2025-05-16 (4 D)</p>
+        <p>Monitored: 4 Days</p>
+        <p>Last Paid: 6 hours ago</p>
+        <p class="contract-address" onclick="copyToClipboard('0x4567890abcdef1234567890abcdef1234567890')">CA: 0x4567890abcdef1234567890abcdef1234567890</p>
+      </div>
+      <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="icon-row">
+        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+        <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png" alt="USDC">
+        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT">
+        <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png" alt="BNB">
+      </div>
     </div>
-    
-    <div class="dexscreener-section">
-        <h2 class="section-title">$RARE CHART</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.2rem; color: var(--secondary);">
-            Track our price action and join the ride to the moon! 🚀
-        </p>
-        
-        <div class="chart-container-wrapper">
-            <iframe src="https://dexscreener.com/solana/YOUR_CONTRACT_ADDRESS?embed=1&theme=dark"></iframe>
-        </div>
-        
-        <div class="chart-stats">
-            <div class="stat-card">
-                <div class="stat-title">Price</div>
-                <div class="stat-value" id="price">$0.0000</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Market Cap</div>
-                <div class="stat-value" id="marketcap">$0</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">24h Volume</div>
-                <div class="stat-value" id="volume">$0</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Holders</div>
-                <div class="stat-value" id="holders">0</div>
-            </div>
-        </div>
+
+    <!-- Card 5 -->
+    <div class="investment-card">
+      <div class="countdown" id="countdown-5">Next Reward: 15:00</div>
+      <div class="card-header">
+        <img src="https://cryptologos.cc/logos/pepe-pepe-logo.png" alt="Pepe Logo">
+        <span class="stats">3 - 1 - 0.5%</span>
+      </div>
+      <h3 class="card-title">Pepe50USD</h3>
+      <div class="insurance">$300 Insurance</div>
+      <div class="card-info">
+        <p>Our Investment: $300</p>
+        <p>Min Spend: $10</p>
+        <p>Min Withdraw: $0.1 for ePayCore, $10 for Bitcoin, $3 for others</p>
+        <p>Referral: 3 Levels: 3% - 1% - 0.5%</p>
+        <p>Status: Paying</p>
+        <p>Online: 2025-05-15 (5 D)</p>
+        <p>Monitored: 5 Days</p>
+        <p>Last Paid: 5 hours ago</p>
+        <p class="contract-address" onclick="copyToClipboard('0x1234567890abcdef1234567890abcdef12345678')">CA: 0x1234567890abcdef1234567890abcdef12345678</p>
+      </div>
+      <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="icon-row">
+        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+        <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png" alt="USDC">
+        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT">
+        <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png" alt="BNB">
+      </div>
     </div>
-    
-    <div class="section roadmap">
-        <div class="roadmap-line"></div>
-        <h2 class="section-title">ROCKY ROADMAP</h2>
-        
-        <div class="roadmap-item">
-            <div class="roadmap-phase">PHASE 1: LAUNCH (Q3 2023)</div>
-            <ul>
-                <li>Fair launch on Pump.fun</li>
-                <li>Community building on Telegram & Twitter</li>
-                <li>First 100 rocks painted and photographed</li>
-                <li>5,000 SOL market cap target</li>
-            </ul>
-        </div>
-        
-        <div class="roadmap-item">
-            <div class="roadmap-phase">PHASE 2: GROWTH (Q4 2023)</div>
-            <ul>
-                <li>CEX listings (Gate.io, MEXC, Bitmart)</li>
-                <li>500 rocks painted (halfway to record!)</li>
-                <li>First NFT airdrop to top holders</li>
-                <li>50,000 SOL market cap target</li>
-            </ul>
-        </div>
-        
-        <div class="roadmap-item">
-            <div class="roadmap-phase">PHASE 3: RECORD (Q1 2024)</div>
-            <ul>
-                <li>1,000 rocks painted - Guinness Record attempt</li>
-                <li>NFT marketplace for rock collections</li>
-                <li>Major exchange listing (KuCoin, Bybit)</li>
-                <li>250,000 SOL market cap target</li>
-            </ul>
-        </div>
-        
-        <div class="roadmap-item">
-            <div class="roadmap-phase">PHASE 4: ROCKYVERSE (Q2 2024+)</div>
-            <ul>
-                <li>Rocky metaverse gallery</li>
-                <li>Physical rock exhibitions</li>
-                <li>Merchandise store</li>
-                <li>1,000,000 SOL market cap target</li>
-            </ul>
-        </div>
+
+    <!-- Card 6 -->
+    <div class="investment-card">
+      <div class="countdown" id="countdown-6">Next Reward: 15:00</div>
+      <div class="card-header">
+        <img src="https://cryptologos.cc/logos/dogecoin-doge-logo.png" alt="Doge Logo">
+        <span class="stats">7 - 3 - 1%</span>
+      </div>
+      <h3 class="card-title">fart50USD</h3>
+      <div class="insurance">$700 Insurance</div>
+      <div class="card-info">
+        <p>Our Investment: $700</p>
+        <p>Min Spend: $30</p>
+        <p>Min Withdraw: $0.5 for ePayCore, $20 for Bitcoin, $6 for others</p>
+        <p>Referral: 3 Levels: 7% - 3% - 1%</p>
+        <p>Status: Paying</p>
+        <p>Online: 2025-05-14 (6 D)</p>
+        <p>Monitored: 6 Days</p>
+        <p>Last Paid: 4 hours ago</p>
+        <p class="contract-address" onclick="copyToClipboard('0xabcdef1234567890abcdef1234567890abcdef12')">CA: 0xabcdef1234567890abcdef1234567890abcdef12</p>
+      </div>
+      <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="icon-row">
+        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+        <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png" alt="USDC">
+        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT">
+        <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png" alt="BNB">
+      </div>
     </div>
-    
-    <div class="section">
-        <h2 class="section-title">CONTRACT</h2>
-        
-        <div class="copy-box">
-            <div class="contract-address" id="contractAddress">YOUR_CONTRACT_ADDRESS_HERE</div>
-            <button class="copy-button" onclick="copyContract()">
-                <i class="fas fa-copy"></i> COPY
-            </button>
-        </div>
-        
-        <div class="social-links">
-            <a href="https://twitter.com/RockyArtReward" class="social-link" target="_blank">
-                <div class="social-icon twitter-icon"></div>
-            </a>
-            <a href="https://t.me/RockyArtReward" class="social-link" target="_blank">
-                <div class="social-icon telegram-icon"></div>
-            </a>
-            <a href="https://www.tiktok.com/@rockyartreward" class="social-link" target="_blank">
-                <div class="social-icon tiktok-icon"></div>
-            </a>
-            <a href="https://youtube.com/RockyArtReward" class="social-link" target="_blank">
-                <div class="social-icon youtube-icon"></div>
-            </a>
-            <a href="https://dexscreener.com/solana/YOUR_CONTRACT_ADDRESS" class="social-link" target="_blank">
-                <div class="social-icon dexscreener-icon"></div>
-            </a>
-        </div>
+
+    <!-- Card 7 -->
+    <div class="investment-card">
+      <div class="countdown" id="countdown-7">Next Reward: 15:00</div>
+      <div class="card-header">
+        <img src="https://cryptologos.cc/logos/maga-maga-coin-logo.png" alt="Trump Logo">
+        <span class="stats">5 - 2 - 1%</span>
+      </div>
+      <h3 class="card-title">Trump50USD</h3>
+      <div class="insurance">$500 Insurance</div>
+      <div class="card-info">
+        <p>Our Investment: $500</p>
+        <p>Min Spend: $15</p>
+        <p>Min Withdraw: $0.1 for ePayCore, $10 for Bitcoin, $3 for others</p>
+        <p>Referral: 3 Levels: 5% - 2% - 1%</p>
+        <p>Status: Paying</p>
+        <p>Online: 2025-05-13 (7 D)</p>
+        <p>Monitored: 7 Days</p>
+        <p>Last Paid: 3 hours ago</p>
+        <p class="contract-address" onclick="copyToClipboard('0x7890abcdef1234567890abcdef1234067890abcd')">CA: 0x7890abcdef1234567890abcdef1234067890abcd</p>
+      </div>
+      <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="icon-row">
+        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+        <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png" alt="USDC">
+        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT">
+        <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png" alt="BNB">
+      </div>
     </div>
-    
-    <div class="notification" id="notification">Contract address copied!</div>
-    
-    <script src="script.js"></script>
+
+    <!-- Card 8 -->
+    <div class="investment-card">
+      <div class="countdown" id="countdown-8">Next Reward: 15:00</div>
+      <div class="card-header">
+        <img src="https://cryptologos.cc/logos/tron-trx-logo.png" alt="Tit Logo">
+        <span class="stats">4 - 1 - 0.5%</span>
+      </div>
+      <h3 class="card-title">Tit50USD</h3>
+      <div class="insurance">$400 Insurance</div>
+      <div class="card-info">
+        <p>Our Investment: $400</p>
+        <p>Min Spend: $20</p>
+        <p>Min Withdraw: $0.2 for ePayCore, $8 for Bitcoin, $2 for others</p>
+        <p>Referral: 3 Levels: 4% - 1% - 0.5%</p>
+        <p>Status: Paying</p>
+        <p>Online: 2025-05-12 (8 D)</p>
+        <p>Monitored: 8 Days</p>
+        <p>Last Paid: 2 hours ago</p>
+        <p class="contract-address" onclick="copyToClipboard('0x4567890abcdef1234567890abcdef1234567890')">CA: 0x4567890abcdef1234567890abcdef1234567890</p>
+      </div>
+      <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="icon-row">
+        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+        <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png" alt="USDC">
+        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT">
+        <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png" alt="BNB">
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="investment-card">
+      <div class="countdown" id="countdown-9">Next Reward: 15:00</div>
+      <div class="card-header">
+        <img src="https://cryptologos.cc/logos/pepe-pepe-logo.png" alt="Pepe Logo">
+        <span class="stats">6 - 2 - 1%</span>
+      </div>
+      <h3 class="card-title">Pepe50USD</h3>
+      <div class="insurance">$550 Insurance</div>
+      <div class="card-info">
+        <p>Our Investment: $550</p>
+        <p>Min Spend: $25</p>
+        <p>Min Withdraw: $0.3 for ePayCore, $15 for Bitcoin, $5 for others</p>
+        <p>Referral: 3 Levels: 6% - 2% - 1%</p>
+        <p>Status: Paying</p>
+        <p>Online: 2025-05-11 (9 D)</p>
+        <p>Monitored: 9 Days</p>
+        <p>Last Paid: 1 hour ago</p>
+        <p class="contract-address" onclick="copyToClipboard('0x1234567890abcdef1234567890abcdef12345678')">CA: 0x1234567890abcdef1234567890abcdef12345678</p>
+      </div>
+      <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="icon-row">
+        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+        <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png" alt="USDC">
+        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT">
+        <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png" alt="BNB">
+      </div>
+    </div>
+
+       <!-- Card 10 -->
+    <div class="investment-card">
+      <div class="countdown" id="countdown-10">Next Reward: 15:00</div>
+      <div class="card-header">
+        <img src="https://cryptologos.cc/logos/dogecoin-doge-logo.png" alt="Doge Logo">
+        <span class="stats">5 - 2 - 0.5%</span>
+      </div>
+      <h3 class="card-title">Doge50USD</h3>
+      <div class="insurance">$350 Insurance</div>
+      <div class="card-info">
+        <p>Our Investment: $350</p>
+        <p>Min Spend: $15</p>
+        <p>Min Withdraw: $0.2 for ePayCore, $10 for Bitcoin, $3 for others</p>
+        <p>Referral: 3 Levels: 5% - 2% - 0.5%</p>
+        <p>Status: Paying</p>
+        <p>Online: 2025-05-10 (10 D)</p>
+        <p>Monitored: 10 Days</p>
+        <p>Last Paid: 30 minutes ago</p>
+        <p class="contract-address" onclick="copyToClipboard('0x9876543210abcdef1234567890abcdef12345678')">CA: 0x9876543210abcdef1234567890abcdef12345678</p>
+      </div>
+      <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="icon-row">
+        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+        <img src="https://cryptologos.cc/logos/usd-coin-usdc-logo.png" alt="USDC">
+        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT">
+        <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png" alt="BNB">
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer style="background: var(--darker); padding: 3rem 2rem; text-align: center; border-top: 2px solid var(--primary); margin-top: 4rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h3 style="font-family: 'Oxanium', sans-serif; font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem;">50USD Rewards</h3>
+      <p style="font-size: 1rem; color: var(--light); margin-bottom: 1.5rem;">
+        Join the future of decentralized finance with 50USD. Earn rewards every 15 minutes and explore our secure investment opportunities.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem;">
+        <a href="#" style="color: var(--accent); font-size: 1.5rem;"><i class="fab fa-telegram-plane"></i></a>
+        <a href="#" style="color: var(--accent); font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color: var(--accent); font-size: 1.5rem;"><i class="fab fa-discord"></i></a>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--light); opacity: 0.7;">
+        &copy; 2025 50USD. All rights reserved.
+      </p>
+    </div>
+  </footer>
+<script src="script.js"></script>
+   
 </body>
 </html>
